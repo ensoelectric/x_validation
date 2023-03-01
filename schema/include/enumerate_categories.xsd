@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:simpleType name="categoriesType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="M"/>
+         <xs:enumeration value="A"/>
+         <xs:enumeration value="A1"/>
+         <xs:enumeration value="B"/>
+         <xs:enumeration value="B1"/>
+         <xs:enumeration value="BE"/>
+         <xs:enumeration value="C"/>
+         <xs:enumeration value="C1"/>
+         <xs:enumeration value="C1E"/>
+         <xs:enumeration value="CE"/>
+         <xs:enumeration value="D"/>
+         <xs:enumeration value="DE"/>
+         <xs:enumeration value="D1"/>
+         <xs:enumeration value="D1E"/>
+         <xs:enumeration value="Tm"/>
+         <xs:enumeration value="Tb"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,92 @@
+<div xmlns:j4r="http://jats4r.org/ns">
+   <p>Checks performed:</p>
+   <ul>
+      <li>Проверка ограничений по возрасту</li>
+      <li>Проверка существования категории</li>
+      <li>Проверка ограничений по возрасту</li>
+      <li>Проверка корректности форматов</li>
+      <li>Проверка корректности дат</li>
+      <li>Проверка на уникальность удостоверения (в границах файла) и категории ТС (в границах
+         удостоверения)</li>
+   </ul>
+   <table class="results">
+      <thead>
+         <tr>
+            <th>Severity level</th>
+            <th>Location</th>
+            <th>Message</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr class="undefined">
+            <td>undefined</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[7]​/​Q{}Driver[1]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[7]/Q{}Driver[1]</span></td>
+            <td>В удостоверении указаны категории ТС, для управления которыми водитель должен быть
+               старше 16 лет</td>
+         </tr>
+         <tr class="undefined">
+            <td>undefined</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[8]​/​Q{}Categories[1]​/​Q{}Category[1]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[8]/Q{}Categories[1]/Q{}Category[1]</span></td>
+            <td>L - не является категорией ТС</td>
+         </tr>
+         <tr class="undefined">
+            <td>undefined</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[9]​/​Q{}Categories[1]​/​Q{}Category[1]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[9]/Q{}Categories[1]/Q{}Category[1]</span></td>
+            <td>Для получения категории "BE" водитель должен иметь право управления транспортными
+               средствами категории "B" не менее 12 месяцев</td>
+         </tr>
+         <tr class="undefined">
+            <td>undefined</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[6]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[6]</span></td>
+            <td>Серия водительского удостоверения, выданного после 1 марта 2011 г., должна содержать
+               две цифры и две буквы кириллицы</td>
+         </tr>
+         <tr class="undefined">
+            <td>undefined</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[7]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[7]</span></td>
+            <td>Серия водительского удостоверия, выданного до 1 марта 2011 г, должна содержать четыре
+               цифры</td>
+         </tr>
+         <tr class="ERROR">
+            <td>ERROR</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[12]​/​Q{}Driver[1]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[12]/Q{}Driver[1]</span></td>
+            <td>В фамилии водителя обнаружены недопустимые символы </td>
+         </tr>
+         <tr class="ERROR">
+            <td>ERROR</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[13]​/​Q{}Driver[1]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[13]/Q{}Driver[1]</span></td>
+            <td>Не указана фамилия или имя водителя</td>
+         </tr>
+         <tr class="ERROR">
+            <td>ERROR</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[14]​/​Q{}Driver[1]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[14]/Q{}Driver[1]</span></td>
+            <td>Не указана фамилия или имя водителя</td>
+         </tr>
+         <tr class="ERROR">
+            <td>ERROR</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[15]​/​Q{}Driver[1]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[15]/Q{}Driver[1]</span></td>
+            <td>В отчестве водителя обнаружены недопустимые символы </td>
+         </tr>
+         <tr class="WARNING">
+            <td>WARNING</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[16]​/​Q{}Driver[1]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[16]/Q{}Driver[1]</span></td>
+            <td>Не указано отчество водителя</td>
+         </tr>
+         <tr class="WARNING">
+            <td>WARNING</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[5]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[5]</span></td>
+            <td>Удостоверение должно быть выдано на 10 лет</td>
+         </tr>
+         <tr class="ERROR">
+            <td>ERROR</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[4]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[4]</span></td>
+            <td>Удостоверение 11АБ 123456 повторяется</td>
+         </tr>
+         <tr class="ERROR">
+            <td>ERROR</td>
+            <td><span class="xpath-display">​/​Q{}DrivingLicenses[1]​/​Q{}License[11]​/​Q{}Categories[1]​/​Q{}Category[2]</span><span class="xpath-location">/Q{}DrivingLicenses[1]/Q{}License[11]/Q{}Categories[1]/Q{}Category[2]</span></td>
+            <td>Категория "D" указана в удостоверении несколько раз</td>
+         </tr>
+      </tbody>
+   </table>
+</div>

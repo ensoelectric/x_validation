@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="include/enumerate_categories.xsd"/>
+
+	<xs:element name="DrivingLicenses">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = 'License' minOccurs = '1' maxOccurs = 'unbounded'>
+					<xs:complexType>
+						<xs:annotation>
+							<xs:documentation>Водительское удостоверение, выданное в РФ</xs:documentation>
+						</xs:annotation>
+						<xs:sequence>
+							<xs:element name="Series">
+								<xs:annotation>
+									<xs:documentation>
+										Серия документа. Две цифры и две русские заглавные буквы для водительского удостоверения, полученного до 1 марта 2011 г., или четыре цифры для водительского удостоверения, полученного после 1 марта 2011. Пример: 44АА или 4403
+									</xs:documentation>
+								</xs:annotation>
+
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:length value="4"/>
+										<xs:pattern value="([0-9]){2}([А-Я, 0-9]){2}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Number">
+								<xs:annotation>
+									<xs:documentation>Номер удостоверения;</xs:documentation>
+								</xs:annotation>
+
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:length value="6"/>
+										<xs:pattern value="[0-9]{6}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Issuer" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Наименование подразделения Госавтоинспекции (в кодированном виде), выдавшего водительское удостоверение;</xs:documentation>
+							</xs:annotation>
+
+						</xs:element>
+							<xs:element name="IssueDate" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>Дата выдачи удостоверения</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+							<xs:element name="ExpDate" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>Дата окончания срока действия удостоверения</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+							<xs:element name = 'Driver' type = 'Driver'/>
+							<xs:element name = 'Categories' type = 'Categories'/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="country" type="xs:string" fixed="RU"/>
+			<xs:attribute name="version" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name = "Driver">
+		<xs:annotation>
+			<xs:documentation>Данные владельца удостоверения</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name="Surname" >
+				<xs:annotation>
+					<xs:documentation>Фамилия</xs:documentation>
+				</xs:annotation>
+
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		
+			<xs:element name="Name">
+				<xs:annotation>
+					<xs:documentation>Имя</xs:documentation>
+				</xs:annotation>
+
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+
+			</xs:element>
+		
+			<xs:element name="Patronymic" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Отчество (если имеется)</xs:documentation>
+				</xs:annotation>
+
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		
+			<xs:element name="DateOfBirth" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Дата рождения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		
+			<xs:element name="PlaceOfBirth" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Место рождения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		
+			<xs:element name="Address" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Место жительства</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name = "Categories">
+		<xs:annotation>
+			<xs:documentation>Открытые категории</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name = 'Category' minOccurs = '1' maxOccurs = '8'>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Name" type="categoriesType">
+						<xs:annotation>
+							<xs:documentation>Наименование категории или подкатегории</xs:documentation>
+						</xs:annotation>
+
+						</xs:element>
+						<xs:element name="IssueDate" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>Дата получения</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ExpDate" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>Дата окончания срока действия </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Restrictions" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Ограничения права на управление ТС</xs:documentation>
+							</xs:annotation>
+					</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

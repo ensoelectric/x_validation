@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<db:book xmlns:db="http://docbook.org/ns/docbook"
+          xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+   <db:bookinfo>
+      <db:title>Проверка водительских удостоверений, выданных в РФ</db:title>
+      <db:pubdate>2023-03-01T20:40:36.213837+03:00</db:pubdate>
+   </db:bookinfo>
+   <db:article>
+      <db:artheader>
+         <db:title>Проверка ограничений по возрасту</db:title>
+      </db:artheader>
+      <db:epigraph>Получить права может водитель определенного возраста. Условия такие:</db:epigraph>
+      <db:chapter>
+         <db:title>
+                            Untitled rule
+                        </db:title>
+                        Undefined description for the rule
+                    <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: ERROR</db:para>
+            <db:para>Schematron Reporting: $DriverAge &lt; 16 and ../Categories/Category/Name = ('M','A1')</db:para>
+            <db:para>Schematron Message: В удостоверении указаны категории ТС, для управления которыми водитель должен быть старше 16 лет</db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: ERROR</db:para>
+            <db:para>Schematron Reporting: $DriverAge &lt; 18 and ../Categories/Category/Name = ('A','B','B1','C','C1')</db:para>
+            <db:para>Schematron Message: В удостоверении указаны категории ТС, для управления которыми водитель должен быть старше 18 лет</db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: ERROR</db:para>
+            <db:para>Schematron Reporting: $DriverAge &lt; 19 and ../Categories/Category/Name = ('BE','C1E','CE')</db:para>
+            <db:para>Schematron Message: В удостоверении указаны категории ТС, для управления которыми водитель должен быть старше 19 лет</db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: ERROR</db:para>
+            <db:para>Schematron Reporting: $DriverAge &lt; 21 and ../Categories/Category/Name = ('D','D1','Tm','Tb')</db:para>
+            <db:para>Schematron Message: В удостоверении указаны категории ТС, для управления которыми водитель должен быть старше 21 лет</db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: ERROR</db:para>
+            <db:para>Schematron Reporting: $DriverAge &lt; 22 and ../Categories/Category/Name = ('DE','D1E')</db:para>
+            <db:para>Schematron Message: В удостоверении указаны категории ТС, для управления которыми водитель должен быть старше 22 лет</db:para>
+         </db:simplesect>
+      </db:chapter>
+   </db:article>
+   <db:article>
+      <db:artheader>
+         <db:title>Проверка существования категории</db:title>
+      </db:artheader>
+      <db:epigraph/>
+      <db:chapter>
+         <db:title>
+                            Untitled rule
+                        </db:title>
+                        Undefined description for the rule
+                    <db:simplesect>
+            <db:title>Assert</db:title>
+            <db:para>Приоритет: ERROR</db:para>
+            <db:para>Schematron Assertion: Name = ('M','A','A1','B','B1','BE','C','C1','C1E','CE','D','DE','D1','D1E','Tm','Tb')</db:para>
+            <db:para>Schematron Message: 
+          - не является категорией ТС</db:para>
+         </db:simplesect>
+      </db:chapter>
+   </db:article>
+   <db:article>
+      <db:artheader>
+         <db:title>Проверка необходимого стажа управления</db:title>
+      </db:artheader>
+      <db:epigraph>Получить права может водитель определенного возраста. Условия такие:</db:epigraph>
+      <db:chapter>
+         <db:title>
+                            Untitled rule
+                        </db:title>
+                        Undefined description for the rule
+                    <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: </db:para>
+            <db:para>Schematron Reporting: Name = 'BE' and ( not ( preceding-sibling::Category[Name=('B') and xs:yearMonthDuration('P0Y12M')+xs:date(IssueDate) &lt; current-date()] or following-sibling::Category[Name=('B') and xs:yearMonthDuration('P0Y12M')+xs:date(IssueDate) &lt; current-date()]) )</db:para>
+            <db:para>Schematron Message: Для получения категории "BE" водитель должен иметь право управления транспортными средствами категории "B" не менее 12 месяцев</db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: </db:para>
+            <db:para>Schematron Reporting: Name = 'C1E' and ( not ( preceding-sibling::Category[Name=('C1') and xs:yearMonthDuration('P0Y12M')+xs:date(IssueDate) &lt; current-date()] or following-sibling::Category[Name=('C1') and xs:yearMonthDuration('P0Y12M')+xs:date(IssueDate) &lt; current-date()]) )</db:para>
+            <db:para>Schematron Message: Для получения категории "C1E" водитель должен иметь право управления транспортными средствами категории "C1" не менее 12 месяцев</db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: </db:para>
+            <db:para>Schematron Reporting: Name = 'CE' and ( not ( preceding-sibling::Category[Name=('C') and xs:yearMonthDuration('P0Y12M')+xs:date(IssueDate) &lt; current-date()] or following-sibling::Category[Name=('C') and xs:yearMonthDuration('P0Y12M')+xs:date(IssueDate) &lt; current-date()]) )</db:para>
+            <db:para>Schematron Message: Для получения категории "CE" водитель должен иметь право управления транспортными средствами категории "C" не менее 12 месяцев</db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: </db:para>
+            <db:para>Schematron Reporting: Name = 'DE' and ( not ( preceding-sibling::Category[Name=('D') and xs:yearMonthDuration('P0Y12M')+xs:date(IssueDate) &lt; current-date()] or following-sibling::Category[Name=('D') and xs:yearMonthDuration('P0Y12M')+xs:date(IssueDate) &lt; current-date()]) )</db:para>
+            <db:para>Schematron Message: Для получения категории "DE" водитель должен иметь право управления транспортными средствами категории "D" не менее 12 месяцев</db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: </db:para>
+            <db:para>Schematron Reporting: Name = 'D1E' and ( not ( preceding-sibling::Category[Name=('D1') and xs:yearMonthDuration('P0Y12M')+xs:date(IssueDate) &lt; current-date()] or following-sibling::Category[Name=('D1') and xs:yearMonthDuration('P0Y12M')+xs:date(IssueDate) &lt; current-date()]) )</db:para>
+            <db:para>Schematron Message: Для получения категории "D1E" водитель должен иметь право управления транспортными средствами категории "D1" не менее 12 месяцев</db:para>
+         </db:simplesect>
+      </db:chapter>
+   </db:article>
+
+	Проверка водительских удостоверений, выданных в РФ
+
+	<db:article>
+      <db:artheader>
+         <db:title>Проверка корректности форматов</db:title>
+      </db:artheader>
+      <db:epigraph>Осуществление форматного контроля</db:epigraph>
+      <db:chapter>
+         <db:title>Проверка формата серии и номера удостоверения</db:title>Серия документа. Две цифры и две русские заглавные буквы для водительского удостоверения, полученного до 1 марта 2011 г., или четыре цифры для водительского удостоверения, полученного после 1 марта 2011. Пример: 44АА или 4403<db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: </db:para>
+            <db:para>Schematron Reporting: (xs:date('2011-03-01') &gt; xs:date(IssueDate)) and not(matches(Series, '^[1-9]{2}[0-9]{2}$'))</db:para>
+            <db:para>Schematron Message: Серия водительского удостоверия, выданного до 1 марта 2011 г, должна содержать четыре цифры</db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: </db:para>
+            <db:para>Schematron Reporting: (xs:date(IssueDate) &gt;= xs:date('2011-03-01')) and not(matches(Series, '^[1-9]{2}[А-Я]{2}$'))</db:para>
+            <db:para>Schematron Message: Серия водительского удостоверения, выданного после 1 марта 2011 г., должна содержать две цифры и две буквы кириллицы</db:para>
+         </db:simplesect>
+      </db:chapter>
+      <db:chapter>
+         <db:title>Проверка формата ФИО</db:title>
+                        Undefined description for the rule
+                    <db:simplesect>
+            <db:title>Assert</db:title>
+            <db:para>Приоритет: ERROR</db:para>
+            <db:para>Schematron Assertion: not(matches(Surname, '[ ]{2,}|[`]{2,}|[.]{2,}|[\-]{2,}|[^а-яА-ЯёЁъ\-.` ()]|^[\- `.]|[\- `.]$|^\w\.'))</db:para>
+            <db:para>Schematron Message: В фамилии водителя обнаружены недопустимые символы </db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Assert</db:title>
+            <db:para>Приоритет: ERROR</db:para>
+            <db:para>Schematron Assertion: not(matches(Name, '[ ]{2,}|[`]{2,}|[.]{2,}|[\-]{2,}|[^а-яА-ЯёЁъ\-.` ()]|^[\- `.]|[\- `.]$|^\w\.'))</db:para>
+            <db:para>Schematron Message: В имени водителя обнаружены недопустимые символы </db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Assert</db:title>
+            <db:para>Приоритет: ERROR</db:para>
+            <db:para>Schematron Assertion: not(matches(Patronymic, '[ ]{2,}|[`]{2,}|[.]{2,}|[\-]{2,}|[^а-яА-ЯёЁъ\-.` ()]|^[\- `.]|[\- `.]$|^\w\.'))</db:para>
+            <db:para>Schematron Message: В отчестве водителя обнаружены недопустимые символы </db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: ERROR</db:para>
+            <db:para>Schematron Reporting: Surname='' or Name=''</db:para>
+            <db:para>Schematron Message: Не указана фамилия или имя водителя</db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Report</db:title>
+            <db:para>Приоритет: WARNING</db:para>
+            <db:para>Schematron Reporting: Patronymic='' or not(Patronymic)</db:para>
+            <db:para>Schematron Message: Не указано отчество водителя</db:para>
+         </db:simplesect>
+      </db:chapter>
+   </db:article>
+   <db:article>
+      <db:artheader>
+         <db:title>Проверка корректности дат</db:title>
+      </db:artheader>
+      <db:epigraph>Проверка корректности даты выдачи и даты окончания действия водительского удостоверения</db:epigraph>
+      <db:chapter>
+         <db:title>Начало и окончание действия удостоверения</db:title>
+                        Undefined description for the rule
+                    <db:simplesect>
+            <db:title>Assert</db:title>
+            <db:para>Приоритет: </db:para>
+            <db:para>Schematron Assertion: xs:date(current-date()) &gt;= xs:date(IssueDate)</db:para>
+            <db:para>Schematron Message: Дата выдачи документа не должна быть больше текущей даты</db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Assert</db:title>
+            <db:para>Приоритет: WARNING</db:para>
+            <db:para>Schematron Assertion: xs:date(ExpDate) = xs:yearMonthDuration('P10Y')+xs:date(IssueDate)</db:para>
+            <db:para>Schematron Message: Удостоверение должно быть выдано на 10 лет</db:para>
+         </db:simplesect>
+      </db:chapter>
+      <db:chapter>
+         <db:title>Начало и окончание действия категории</db:title>
+                        Undefined description for the rule
+                    <db:simplesect>
+            <db:title>Assert</db:title>
+            <db:para>Приоритет: </db:para>
+            <db:para>Schematron Assertion: xs:date(current-date()) &gt;= xs:date(IssueDate)</db:para>
+            <db:para>Schematron Message: Дата начала действия категории не должна быть больше текущей даты</db:para>
+         </db:simplesect>
+         <db:simplesect>
+            <db:title>Assert</db:title>
+            <db:para>Приоритет: </db:para>
+            <db:para>Schematron Assertion: xs:date(../../ExpDate) &gt;= xs:date(ExpDate)</db:para>
+            <db:para>Schematron Message: Срок действия категории не может превышать срок действия удостоверения</db:para>
+         </db:simplesect>
+      </db:chapter>
+   </db:article>
+   <db:article>
+      <db:artheader>
+         <db:title>Проверка на уникальность удостоверения (в границах файла) и категории ТС (в границах удостоверения)</db:title>
+      </db:artheader>
+      <db:epigraph/>
+      <db:chapter>
+         <db:title>Проверка удостоверений</db:title>
+                        Undefined description for the rule
+                    <db:simplesect>
+            <db:title>Assert</db:title>
+            <db:para>Приоритет: FATAL</db:para>
+            <db:para>Schematron Assertion: count(Series[$SeriesNumber = ../preceding-sibling::License/string-join((Series, Number), ' ')])=0</db:para>
+            <db:para>Schematron Message: Удостоверение  повторяется</db:para>
+         </db:simplesect>
+      </db:chapter>
+      <db:chapter>
+         <db:title>Проверка категорий</db:title>
+                        Undefined description for the rule
+                    <db:simplesect>
+            <db:title>Assert</db:title>
+            <db:para>Приоритет: ERROR</db:para>
+            <db:para>Schematron Assertion: count(Name[. = ../preceding-sibling::Category/Name])=0</db:para>
+            <db:para>Schematron Message: Категория "" указана в удостоверении несколько раз</db:para>
+         </db:simplesect>
+      </db:chapter>
+   </db:article>
+</db:book>

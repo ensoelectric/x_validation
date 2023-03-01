@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<select_name_and_age_from_categories>
+	<DATA_RECORD>
+		<name>BE</name>
+		<pre-training>B</pre-training>
+		<duration>12</duration>
+	</DATA_RECORD>
+	<DATA_RECORD>
+		<name>C1E</name>
+		<pre-training>C1</pre-training>
+		<duration>12</duration>
+	</DATA_RECORD>
+	<DATA_RECORD>
+		<name>CE</name>
+		<pre-training>C</pre-training>
+		<duration>12</duration>
+	</DATA_RECORD>
+	<DATA_RECORD>
+		<name>DE</name>
+		<pre-training>D</pre-training>
+		<duration>12</duration>
+	</DATA_RECORD>
+	<DATA_RECORD>
+		<name>D1E</name>
+		<pre-training>D1</pre-training>
+		<duration>12</duration>
+	</DATA_RECORD>
+</select_name_and_age_from_categories>
