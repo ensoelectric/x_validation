@@ -10,6 +10,21 @@
 			<xsl:text disable-output-escaping="yes">
 				/* HTML POPULATORS */
 				
+				var downloadXML = function(xmltext, filename){
+                    var filename = filename+".xml";
+                    var pom = document.createElement('a');
+                    var bb = new Blob([xmltext], {type: 'text/xml'});
+
+                    pom.setAttribute('href', window.URL.createObjectURL(bb));
+                    pom.setAttribute('download', filename);
+
+                    pom.dataset.downloadurl = ['text/xml', pom.download, pom.href].join(':');
+                    pom.draggable = true;
+                    pom.classList.add('dragout');
+
+                    pom.click();
+                }
+
 				var addHiddenFields = function() {
 					document.querySelectorAll("[data-xsd2html2xml-min], [data-xsd2html2xml-max]").forEach(function(o) {
 						//add hidden element

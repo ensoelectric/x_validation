@@ -208,7 +208,24 @@
 				}
 			</script><script type="text/javascript">
 				/* HTML POPULATORS */
+
+
 				
+				var downloadXML = function(xmltext, filename){
+                    var filename = filename+".xml";
+                    var pom = document.createElement('a');
+                    var bb = new Blob([xmltext], {type: 'text/xml'});
+
+                    pom.setAttribute('href', window.URL.createObjectURL(bb));
+                    pom.setAttribute('download', filename);
+
+                    pom.dataset.downloadurl = ['text/xml', pom.download, pom.href].join(':');
+                    pom.draggable = true;
+                    pom.classList.add('dragout');
+
+                    pom.click();
+                }
+
 				var addHiddenFields = function() {
 					document.querySelectorAll("[data-xsd2html2xml-min], [data-xsd2html2xml-max]").forEach(function(o) {
 						//add hidden element
@@ -578,7 +595,7 @@
 			</script><meta name="generator" content="XSD2HTML2XML v3: https://github.com/MichielCM/xsd2html2xml">
    </head>
    <body>
-      <form action="javascript:void(0);" class="xsd2html2xml" onsubmit="downloadFile(htmlToXML(this));">
+      <form action="javascript:void(0);" class="xsd2html2xml" onsubmit="downloadXML(htmlToXML(this), &#34;x_validation&#34;);">
          <section>
             <fieldset data-xsd2html2xml-namespace="" data-xsd2html2xml-type="element" data-xsd2html2xml-name="DrivingLicenses" data-xsd2html2xml-xpath="/DrivingLicenses">
                <legend>DrivingLicenses</legend>

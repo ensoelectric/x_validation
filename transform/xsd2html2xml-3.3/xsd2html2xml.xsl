@@ -279,7 +279,9 @@
 				<!-- specify action on submit -->
 				<xsl:attribute name="onsubmit">
 					<xsl:value-of select="$config-callback" />
-					<xsl:text>(htmlToXML(this));</xsl:text>
+					<xsl:text>(htmlToXML(this), "</xsl:text>
+					<xsl:value-of select="$config-xmlfilename" />
+					<xsl:text>");</xsl:text>
 				</xsl:attribute>
 				
 				<!-- add custom appinfo data -->
